@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista tareas</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="contenedor">
+    <h1>Lista de tareas del Argento</h1>
+    <div class="agregarTareas">
+      <div>
+        <label for="tareas">Ingresar tareas</label>
+        <input type="text" placeholder="Ingrese su tarea" id="tareas">
+      </div>
+
+      <label for="importante">Tarea importante</label>
+      <input type="checkbox" id="importante">
+      <button id="enviar">Enviar</button>
+    </div>
+    <div class="tareas">
+      <ol>
+        <li><span>Priemra frase</span><div><button>BOTON</button> <button>BOTON</button> <button>BOTON</button></div>
+        </li>
+        <li><span>Segunda frase</span> <div><button>BOTON</button> <button>BOTON</button> <button>BOTON</button></div>
+        </li>
+        <li><span>Tercera frase</span><div><button>BOTON</button> <button>BOTON</button> <button>BOTON</button></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

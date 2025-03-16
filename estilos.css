@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body,html{
+    width: 100%;
+    font-size: 15px;
+}
+h1{
+    text-transform: uppercase;
+    font-family: "Exo 2", sans-serif;
+    color: var(--amarillo);
+}
+label,li,button{
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.1rem;
+}
+:root{
+    --celeste : rgb(77, 189, 226); 
+    --amarillo : #FCBF49;
+}
+button{
+    padding: 5px 10px;
+}
+
+.contenedor{
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .agregarTareas{
+        display: flex;
+        min-width: 800px;
+        padding: 20px;
+        margin: 30px;
+        align-items: center;    
+        border: solid 2px var(--celeste);
+        justify-content: space-between;
+        input#tareas{
+            width: 400px;
+            padding: 10px;
+            font-size: 1.1rem;
+            border: solid 2px var(--celeste);
+            color: var(--celeste);
+            &::placeholder{
+                color: var(--celeste);
+            }
+            &:focus{
+                border: solid 2px var(--amarillo);
+                outline: none;
+            }
+        }
+        button{
+            background-color: var(--amarillo);
+            border: none;
+            border-radius: 5px;
+        }
+    }
+}
+.tareas{
+    min-width: 800px;
+    padding: 20px;
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        margin-bottom: 10px; 
+        div{
+            display: flex;
+            gap: 20px;
+        }
+      }
+}
+  /* PARA MI, ALBERTO PONE EL NUMERO AL LADO . Mejor preguntarle que onda */
