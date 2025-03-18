@@ -25,10 +25,7 @@ button{
     border: none;
     border-radius: 5px !important;
 }
-#botonModificar{
-    display: none;
-}
-.tareaImportante{
+.importante{
     font-weight: bold;
 }
 .contenedor{

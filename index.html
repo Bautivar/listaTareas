@@ -10,10 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
+  <p>HOLA</p>
   <div class="contenedor">
     <h1>Lista de tareas del Argento</h1>
     <!-- Caja para agregar tareas -->
@@ -22,10 +22,12 @@
         <label for="tarea">Ingresar tareas</label>
         <input type="text" placeholder="Ingrese su tarea" id="tarea">
       </div>
+
       <div>
         <label for="checkbox">Tarea importante</label>
         <input type="checkbox" id="checkbox">
       </div>
+
       <button id="agregarTarea">Agregar</button>
     </div>
     <!-- Fin caja para agregar tareas -->
@@ -36,32 +38,11 @@
 
      <!-- Caja tareas -->
     <div class="cajaTareas">
-      <ol>
-        
-      </ol>
+      <ol></ol>
     </div>
     <!-- Fin caja tareas -->
   </div>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="botonModificar">Modificar</button>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modificar nombre</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <input type="text" placeholder="Cambiar nombre" id="modificarTarea">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
   <script src="script.js"></script>
 </body>
 
