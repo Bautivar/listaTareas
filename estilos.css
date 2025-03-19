@@ -19,15 +19,22 @@ h2{
 label,li,button{
     font-family: "Exo 2", sans-serif;
     font-size: 1.1rem;
-}   
-:root{
-    --celeste : rgb(77, 189, 226); 
-    --amarillo : #FCBF49;
 }
 button{
     padding: 5px 10px;
     border: none;
     border-radius: 5px !important;
+}
+ol{
+    color: var(--amarillo);
+}
+li{
+    background-color: white;
+    padding: 5px;
+}   
+:root{
+    --celeste : rgb(77, 189, 226); 
+    --amarillo : #FCBF49;
 }
 .ocultarTarea{
     display: none;
@@ -39,6 +46,7 @@ button{
     width: 100%;
     padding: 50px;
     gap: 30px;
+    background: url("https://cdn.cnn.com/cnnnext/dam/assets/220308144647-messi-real-madrid-deportes-cnn.jpg") repeat center top ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +67,7 @@ button{
     }
     .agregarTareas{
         display: flex;
+        background-color: white;
         min-width: 800px;
         padding: 20px;
         align-items: center;    
@@ -71,7 +80,9 @@ button{
 }
 div#contadorTareas{
     #importante,#total{
+        padding: 5px;
         min-width: 250px;
+        background-color: white;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -85,7 +96,6 @@ div#contadorTareas{
 
 }
 .cajaTareas{
-    min-width: 800px;
     padding: 20px;
     div{
         display: flex;
@@ -93,4 +103,3 @@ div#contadorTareas{
         gap: 20px;
     }
 }
-  /* PARA MI, ALBERTO PONE EL NUMERO AL LADO . Mejor preguntarle que onda */

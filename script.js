@@ -12,6 +12,7 @@ function agregarTarea() {
         // Agrego clase importante si el ususario lo pide
         if (checkbox.checked) {
             li.classList.add("importante");
+            spanTareasImportantes.textContent = document.querySelectorAll(".importante").length;
         }
 
         // Contenedor de botones
@@ -22,6 +23,7 @@ function agregarTarea() {
         botonImportante.style.backgroundColor = "gold";
         botonImportante.addEventListener("click",() =>{
                 li.classList.toggle("importante");
+                spanTareasImportantes.textContent = document.querySelectorAll(".importante").length;
         })
         // BOTON MODIFICAR
         const botonModificar = document.createElement("button");
@@ -39,6 +41,8 @@ function agregarTarea() {
         botonEliminar.style.backgroundColor = "lightblue";
         botonEliminar.addEventListener("click",() => {
                 listaOrdenada.removeChild(li);
+                spanTareasTotales.textContent = document.querySelectorAll("li").length;
+                spanTareasImportantes.textContent = document.querySelectorAll(".importante").length;
         })
         
         // Agrego los botones al contenedor y
@@ -51,6 +55,7 @@ function agregarTarea() {
     inputTarea.value = "";
     tareaAgregada = "";
     checkbox.checked = false;
+    spanTareasTotales.textContent = document.querySelectorAll("li").length;
 }
 function guardarTarea(evento){
     tareaAgregada = evento.target.value.trim();
@@ -72,6 +77,11 @@ function buscarTarea(evento){
             });
         }
 }
+function agregarTareaEnter(evento) {
+    if (evento.key === "Enter") {
+        agregarTarea();
+    }
+}
 // SELECCIONO LOS ELEMENTOS PRINCIPALES
 const inputTarea = document.querySelector("input#tarea");
 const checkbox = document.querySelector("input#checkbox");
@@ -80,6 +90,7 @@ const botonAgregar = document.querySelector("button#agregarTarea");
 const listaOrdenada = document.querySelector("ol");
 const spanTareasTotales = document.querySelector("#total span");
 const spanTareasImportantes = document.querySelector("#importante span");
+
 // VARIABLE DONDE DEPOSITO LA TAREA ESCRITA
 let tareaAgregada;
 
@@ -88,9 +99,4 @@ inputTarea.addEventListener("input",guardarTarea);
 botonAgregar.addEventListener("click",agregarTarea);
 inputBuscador.addEventListener("input",buscarTarea);
 // AGREGO LAS TAREAS CON ENTER
-document.addEventListener("keydown",e =>{
-    if (e.key === "Enter") {
-        agregarTarea();
-    }
-});
-// Para hacer el contador, debo agarrar las clases de los importantes pata el contador importante y los objetos de la listas para el contador de todos los items
+document.addEventListener("keydown",agregarTareaEnter);
