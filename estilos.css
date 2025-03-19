@@ -12,6 +12,10 @@ h1{
     font-family: "Exo 2", sans-serif;
     color: var(--amarillo);
 }
+h2{
+    font-family: "Exo 2", sans-serif;
+    color: var(--celeste);
+}
 label,li,button{
     font-family: "Exo 2", sans-serif;
     font-size: 1.1rem;
@@ -24,6 +28,9 @@ button{
     padding: 5px 10px;
     border: none;
     border-radius: 5px !important;
+}
+.ocultarTarea{
+    display: none;
 }
 .importante{
     font-weight: bold;
@@ -61,6 +68,21 @@ button{
             background-color: var(--amarillo);
         }
     }
+}
+div#contadorTareas{
+    #importante,#total{
+        min-width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span{
+            font-family: "Exo 2", sans-serif;
+            color: var(--celeste);
+            font-size: 1.2rem;
+            
+        }
+    }
+
 }
 .cajaTareas{
     min-width: 800px;

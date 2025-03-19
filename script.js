@@ -1,16 +1,7 @@
 'use strict'
-// SELECCIONO LOS ELEMENTOS PRINCIPALES
-const inputTarea = document.querySelector("input#tarea");
-const checkbox = document.querySelector("input#checkbox");
-const inputBuscador = document.querySelector("input#buscador");
-const botonAgregar = document.querySelector("button#agregarTarea");
-const listaOrdenada = document.querySelector("ol");
-
-// HACER LAS FUNCIONES POR SEPARADO Y LUEGO AGRGARLAS. DE ESTA MANERA SE PUEDE AGREGAR BOTONES CON ENTER
-// LOS EVENTOS PUEDEN TENER MAS EVENTOS DENTRO. Agrgar tareas crea los botones pero esos botones les tengo que dar un valor predeterminado que sea el correspondiente en cada caso. Asi se opera mas facil. Para los botones usar el target que especifica si se presionaron.
-// BAUTI, LA FUNCION QUE SE HACE CON EL BOTON AGREGAR, DECLARARLA AFUERA ASI LA PODES USAR CUANDO PRSIONES ENTER, PORQ SON FUNCIONES. KPO
+// DECLARO LAS FUNCIONES
 function agregarTarea() {
-    if (tareaAgregada.trim() != "") {
+    if (tareaAgregada != "") {
         // Creo una la lista y un span que guarda el nombre de la tarea
         let li = document.createElement("li");
         let span = document.createElement("span");
@@ -55,52 +46,51 @@ function agregarTarea() {
         contenedorBotones.appendChild(botonImportante);
         contenedorBotones.appendChild(botonEliminar);
         li.appendChild(contenedorBotones);
+        // spanTareasTotales.textContent = 
     }
     inputTarea.value = "";
     tareaAgregada = "";
     checkbox.checked = false;
 }
-
+function guardarTarea(evento){
+    tareaAgregada = evento.target.value.trim();
+}
+function buscarTarea(evento){
+    let buscarTarea = evento.target.value.trim().toLowerCase(); 
+    
+        if (listaOrdenada.children.length > 0) {
+            let tareas = document.querySelectorAll("ol span"); 
+    
+            tareas.forEach(tarea => {
+                let texto = tarea.textContent.toLowerCase(); 
+                
+                if (texto.includes(buscarTarea)) {
+                    tarea.parentElement.classList.remove("ocultarTarea");
+                } else {
+                    tarea.parentElement.classList.add("ocultarTarea");
+                }
+            });
+        }
+}
+// SELECCIONO LOS ELEMENTOS PRINCIPALES
+const inputTarea = document.querySelector("input#tarea");
+const checkbox = document.querySelector("input#checkbox");
+const inputBuscador = document.querySelector("input#buscador");
+const botonAgregar = document.querySelector("button#agregarTarea");
+const listaOrdenada = document.querySelector("ol");
+const spanTareasTotales = document.querySelector("#total span");
+const spanTareasImportantes = document.querySelector("#importante span");
+// VARIABLE DONDE DEPOSITO LA TAREA ESCRITA
 let tareaAgregada;
-inputTarea.addEventListener("input",e =>tareaAgregada = e.target.value);
 
-// Agregar tareas con el boton agregar
+// AGREGO LAS FUNCIONES A LOS ELEMENTOS
+inputTarea.addEventListener("input",guardarTarea);
 botonAgregar.addEventListener("click",agregarTarea);
-
-// Agregar tareas con enter
+inputBuscador.addEventListener("input",buscarTarea);
+// AGREGO LAS TAREAS CON ENTER
 document.addEventListener("keydown",e =>{
     if (e.key === "Enter") {
         agregarTarea();
     }
 });
-
-inputBuscador.addEventListener("input",(e) => {
-    let tareas = Array.from(listaOrdenada.children);
-    let spans = [];
-    for (const tarea of tareas) {
-        spans.push(tarea.firstElementChild);
-    }
-    let input = e.target.value;
-    let posicion = 0;
-    for (const letra of input) {
-        for (const span of spans) {
-            if (span.textContent[posicion] != letra) {
-                span.style.display = "none";
-            }
-        }
-        posicion++;
-    }
-    // if (listaOrdenada.children.length > 0) {
-    //     let tareas = Array.from(listaOrdenada.children);
-    //     let spans = [];
-    //     for (const tarea of tareas) {
-    //         spans.push(tarea.firstElementChild);
-    //         for (const span of spans) {
-    //                if (span.textContent === e.target.value) {
-    //                     // O puedo primero sacar el valor del primer input (primera letra) que se agrega, luego un for con ese input
-    //                     // for con numeros para comparar el valor de l input con las letras del texto
-    //                } 
-    //         }
-    //     }
-    // }
-});
+// Para hacer el contador, debo agarrar las clases de los importantes pata el contador importante y los objetos de la listas para el contador de todos los items
