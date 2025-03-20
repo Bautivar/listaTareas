@@ -36,7 +36,7 @@ li{
     --celeste : rgb(77, 189, 226); 
     --amarillo : #FCBF49;
 }
-.ocultarTarea{
+.ocultar{
     display: none;
 }
 .importante{
@@ -46,7 +46,6 @@ li{
     width: 100%;
     padding: 50px;
     gap: 30px;
-    background: url("https://cdn.cnn.com/cnnnext/dam/assets/220308144647-messi-real-madrid-deportes-cnn.jpg") repeat center top ;
     display: flex;
     justify-content: center;
     align-items: center;
